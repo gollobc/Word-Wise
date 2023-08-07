@@ -1,0 +1,33 @@
+body {
+  background-color: rgb(134, 129, 122);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  font-size:x-small;
+  border-bottom: 1px solid black;
+}
+
+.navigation {
+  display: flex;
+  
+}
+
+.navigation *  {
+  padding-right: .4rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  cursor: pointer;
+  color: whitesmoke;
+}
+
+button {
+  cursor: pointer;
+}

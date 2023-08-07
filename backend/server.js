@@ -32,7 +32,7 @@ app.use(express.json())
 ---------------------------------------------------------- */
 // This tells our app to look at the `controllers/collections.js` file 
 // to handle all routes that begin with `localhost:3000/list`
-app.use('/list', collectionsCtrl)
+app.use('/api/collection', collectionsCtrl)
 
 /* Tell the app to listen on the specified port
 --------------------------------------------------------------- */

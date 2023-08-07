@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const collectionSchema = new mongoose.Schema (
     {
-        collection: {String, required: true},
-        word: {Object, required: true}
+        name: {type: String, required: true},
+        word: {type: String, required: true}
     }
 );
 
