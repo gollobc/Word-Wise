@@ -7,7 +7,7 @@ const db = require('../models')
 /* Routes -------------------------------*/
 //Index Route
 router.get('/:collectionId', function (req,res) {
-    db.Collection.find({ collectionId: req.params.collectionId })
+    db.Collection.find({ name: req.params.collectionId })
         .then(collections => res.json(collections))
 })
 

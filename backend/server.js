@@ -31,7 +31,7 @@ app.use(express.json())
 /* Mount routes
 ---------------------------------------------------------- */
 // This tells our app to look at the `controllers/collections.js` file 
-// to handle all routes that begin with `localhost:3000/list`
+// to handle all routes that begin with `localhost:3000/api/collection`
 app.use('/api/collection', collectionsCtrl)
 
 /* Tell the app to listen on the specified port

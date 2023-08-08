@@ -31,3 +31,12 @@ a:hover {
 button {
   cursor: pointer;
 }
+
+.searchResults {
+  /* width: max-content; */
+  /* float: left;
+  clear: left; */
+  display: inline-block;
+  width: 50%;
+  cursor: pointer;
+}
