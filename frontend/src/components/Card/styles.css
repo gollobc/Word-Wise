@@ -1,0 +1,21 @@
+.wordCard {
+    background-color: rgb(236, 222, 204);
+    border: 1px solid black;
+    border-radius: .5rem;
+    padding: .5rem;
+    margin: .25rem;
+}
+
+.word {
+    display: flex;
+    border-bottom: 1px solid black;
+}
+
+.word p {
+    margin: .35rem 0;
+    font-size: larger;
+}
+
+.syllables {
+    display: flex;
+}

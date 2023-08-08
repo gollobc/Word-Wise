@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useState } from "react"
+import Card from '../Card'
 
 export default function RandomPage() {
     const [random, setRandom] = useState([])
@@ -28,11 +29,10 @@ export default function RandomPage() {
     }
 
     if (random.length > 0) {
-        console.log(random)
-        pageContent = <div>
-            <p>{random[0].word}</p>
-        </div>
+        //console.log(random)
+        pageContent = <Card wordDetails={random[0]}/>
     }
+
     return (
         <>
             <p>Not sure what to search?</p>
