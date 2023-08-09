@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-export async function getCollections(collectionId) {
-    const { data } = await axios.get(`/api/collection/${collectionId}`)
+export async function getCollections() {
+    const { data } = await axios.get(`/api/collection/`)
     return data
 }
 export async function postCollection(collection) {
