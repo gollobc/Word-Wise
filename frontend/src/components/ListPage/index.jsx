@@ -13,12 +13,18 @@ export default function ListPage() {
             .then(collections => setCollections(collections))
     }, [])
 
+    function refreshCollections() {
+        getCollections()
+            .then(newCollectionData => setCollections(newCollectionData))
+    }
+
     if (collections.length > 0) {
         pageContent = collections
             .map((collection, i) => {
                 return <ListEntries 
                     key={i}
                     data={collection}
+                    refreshCollections={refreshCollections}
                 />
             })
     }

@@ -1,8 +1,9 @@
 import { useState } from "react"
 import './styles.css'
-import { updateCollection, deleteCollection } from "../../../utils/backend"
+import { getCollections, updateCollection, deleteCollection } from "../../../utils/backend"
+import { Button } from "semantic-ui-react"
 
-export default function ListEntries({data}) {
+export default function ListEntries({data, refreshCollections}) {
     const [showEditForm, setShowEditForm] = useState(false)
     const [editFormData, setEditFormData] = useState({
         name: data.name,
@@ -19,11 +20,13 @@ export default function ListEntries({data}) {
     function handleSubmit(event) {
         event.preventDefault()
         setShowEditForm(false)
-        updateCollection(editFormData, data._id)        
+        updateCollection(editFormData, data._id) 
+            .then(() => refreshCollections())       
     }
 
     function handleDelete() {
         deleteCollection(data._id)
+            .then(() => refreshCollections())
     }
 
     let entry = <div className="entry">
@@ -53,8 +56,10 @@ if (showEditForm) {
             onChange={handleInputChange}
         />
         <div className="edit-delete-btns">
-            <button onClick={() => {setShowEditForm(false)}}>Close</button>
-            <button type="submit">Submit</button>
+            <Button.Group>
+                <Button onClick={() => {setShowEditForm(false)}}>Close</Button>
+                <Button type="submit">Submit</Button>
+            </Button.Group>
         </div>
     </form>
 }

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useState } from "react"
 import Card from '../Card'
+import './styles.css'
 
 export default function RandomPage() {
     const [random, setRandom] = useState([])
@@ -34,10 +35,12 @@ export default function RandomPage() {
     }
 
     return (
-        <>
-            <p>Not sure what to search?</p>
-            <button onClick={handleRandomClick}>Random</button>
-            {pageContent}
+        <>  
+            <div className='random-header'>
+                <p>Not sure what to search?</p>
+                <button onClick={handleRandomClick} id='random'>Random</button>
+            </div>
+            {pageContent}  
         </>
     )
 }

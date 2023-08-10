@@ -1,7 +1,10 @@
 import './styles.css'
 import { postCollection } from '../../../utils/backend'
+import { useState } from 'react'
 
 export default function Card({wordDetails}) {
+    const [collection, setCollection] = useState({collection: ''})
+    const [showCollectionForm, setShowCollectionForm] = useState(false)
     let definitions = <></>
     let syllables = <></>
     let definition = <></>
@@ -20,9 +23,36 @@ export default function Card({wordDetails}) {
         partOfSpeech = <p>{wordDetails.results[0].partOfSpeech}</p>
         pronunciation = <p>{wordDetails.pronunciation}</p>
     }
+
+    function toggleCollectionForm () {
+        setShowCollectionForm(!showCollectionForm)
+    }
+
+    function handleInputChange(event) {
+        
+        setCollection({...collection,[event.target.name]: event.target.value})
+    }
     
-    function handleClick() {
-        postCollection({word:wordDetails.word})
+    function handleSubmit(event) {
+        event.preventDefault()
+        setShowCollectionForm(false)
+        postCollection({
+
+            word:wordDetails.word
+        })
+    }
+
+    let collectionForm = <></>
+    if (showCollectionForm) {
+        collectionForm = <form onSubmit={handleSubmit}>
+            <input
+                name='collection'
+                placeholder='Set Collection'
+                onChange={handleInputChange}
+            />
+            <button type='submit'>Add</button>
+            <button onClick={() => setShowCollectionForm(false)}>Close</button>
+        </form>
     }
 
     return (
@@ -31,7 +61,7 @@ export default function Card({wordDetails}) {
             <div className='syllables'>{syllables}</div>
             {partOfSpeech}
             {definition}
-            <button onClick={handleClick}>Add to List</button>
+            <button onClick={toggleCollectionForm}>Add to List</button>
         </div>
     )
 }

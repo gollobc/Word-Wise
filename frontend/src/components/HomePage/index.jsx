@@ -4,7 +4,16 @@ export default function HomePage() {
 
     return (
         <>
-            <h1>WordWise</h1>
+            <h1> WordWise
+                {/* <span>W</span>
+                <span>o</span>
+                <span>r</span>
+                <span>d</span>
+                <span>W</span>
+                <span>i</span>
+                <span>s</span>
+                <span>e</span> */}
+            </h1>
 
             <div className="about">
                 <p>
