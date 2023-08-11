@@ -11,6 +11,9 @@ body, html {
 
 .main-body {
   min-height: 90vh;
+  max-width: 500px;
+  margin: auto;
+  padding: 0 3rem;
 }
 
 nav {

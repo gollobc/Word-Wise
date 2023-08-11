@@ -2,6 +2,7 @@ import { useState } from "react"
 import axios from 'axios'
 import './styles.css'
 import { Input } from "semantic-ui-react"
+import SearchCardForm from "./SearchCardForm"
 
 
 export default function SearchPage() {
@@ -154,6 +155,7 @@ export default function SearchPage() {
                         {soundBit}
                         <p>{word.fl}</p>
                         {defs}
+                        <SearchCardForm wordDetails={word}/>
                     </div>
                 )
             })

@@ -1,15 +1,20 @@
-#random{
+/* #random{
     height: 2rem;
     width: 5rem;
     margin: auto;
-}
+} */
 
 .random-header {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 2rem;
 }
 .random-header p {
     margin: 1rem auto 1rem auto;
     font-weight: bold;
+}
+
+#random{
+    margin-bottom: 2rem;
 }

@@ -41,19 +41,20 @@ export default function HomePage() {
                 <p>
                     The English language contains hundreds of thousands of words but the average adult only knows somewhere in the range of 20000-40000 words. The number of words we use in our daily lives, is even less than that. This is where WordWise can help. Not everyone is interesed in learning more words but for those who are, our goal is to offer a new and fun learning experience. Here you will have access to over a 150000 words. So there will always be something new to learn. You'll be able to search any word you like and get back information such as synonyms, antonyms, similar words, and much more. You'll also be able to create collections of words for studying purposes. Ready to get started?
                 </p>
+                <div className="search">
+                    <Link to='/search'>
+                        <Button animated color="black" fluid>
+                            <Button.Content visible>Start Searching</Button.Content>
+                            <Button.Content hidden>
+                                <Icon name='search' id='home-search'></Icon>
+                            </Button.Content>
+                        </Button>
+                    </Link>
+                </div>    
             </div>
             </Transition>
 
-            <div className="search">
-                <Link to='/search'>
-                    <Button animated color="black" fluid>
-                        <Button.Content visible>Start Searching</Button.Content>
-                        <Button.Content hidden>
-                            <Icon name='search' id='home-search'></Icon>
-                        </Button.Content>
-                    </Button>
-                </Link>
-            </div>
+            
         </>
     )
 }

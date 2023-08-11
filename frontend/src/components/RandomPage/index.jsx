@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useState } from "react"
 import Card from '../Card'
+import { Button } from 'semantic-ui-react'
 import './styles.css'
 
 export default function RandomPage() {
@@ -38,7 +39,7 @@ export default function RandomPage() {
         <>  
             <div className='random-header'>
                 <p>Not sure what to search?</p>
-                <button onClick={handleRandomClick} id='random'>Random</button>
+                <Button secondary circular onClick={handleRandomClick} id='random'>Random</Button>
             </div>
             {pageContent}  
         </>

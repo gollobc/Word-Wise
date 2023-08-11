@@ -9,17 +9,17 @@ import ListPage from '../ListPage'
 export default function App() {
 
     return(
-        <>
-            <div className='main-body'>
-                <nav>
-                    <div className="home"><Link to='/'><p>WordWise</p></Link></div>
-                    <div className='navigation'>
-                        <Link to='/search'><p>Search</p></Link>
-                        <Link to='/mylist'><p>My List</p></Link>
-                        <Link to='/random'><p>Random</p></Link>
-                    </div>
+        <>  <nav>
+                <div className="home"><Link to='/'><p>WordWise</p></Link></div>
+                <div className='navigation'>
+                    <Link to='/search'><p>Search</p></Link>
+                    <Link to='/mylist'><p>My List</p></Link>
+                    <Link to='/random'><p>Random</p></Link>
+                </div>
                     
-                </nav>
+            </nav>
+            <div className='main-body'>
+
 
                 <Routes>
                     <Route path='/' element={<HomePage/>}/>

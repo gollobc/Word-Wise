@@ -1,7 +1,7 @@
 import './styles.css'
 import { postCollection } from '../../../utils/backend'
 import { useState } from 'react'
-import { Input, Button } from 'semantic-ui-react'
+import { Input, Button, Form } from 'semantic-ui-react'
 
 export default function Card({wordDetails}) {
     const [collectionData, setCollectionData] = useState('')
@@ -11,7 +11,8 @@ export default function Card({wordDetails}) {
     let definition = <></>
     let partOfSpeech = <></>
     let pronunciation = <></>
-    
+    let collectionForm = <Button size='mini' onClick={toggleCollectionForm}>Add to List</Button>
+
     if (wordDetails.syllables) {
         syllables = wordDetails.syllables.list
             .map((syllable,i) => {
@@ -29,23 +30,24 @@ export default function Card({wordDetails}) {
         setShowCollectionForm(!showCollectionForm)
     }
 
-    function handleInputChange(event) {
-        
+    function handleInputChange(event) {  
         setCollectionData(event.target.value)
     }
     
     function handleSubmit(event) {
         event.preventDefault()
         setShowCollectionForm(false)
+        collectionForm = <></>
         postCollection({
             name:collectionData,
             word:wordDetails.word
         })
+        return collectionForm
     }
 
-    let collectionForm = <></>
+    
     if (showCollectionForm) {
-        collectionForm = <form onSubmit={handleSubmit}>
+        collectionForm = <Form onSubmit={handleSubmit}>
             <Input
                 size='mini'
                 name='collection'
@@ -56,16 +58,15 @@ export default function Card({wordDetails}) {
             <Button type='submit'>Add</Button>
             <Button onClick={() => setShowCollectionForm(false)}>Close</Button>
             </Button.Group>
-        </form>
+        </Form>
     }
 
     return (
         <div className="wordCard">
-            <div className="word"><p>{wordDetails.word} - </p> {pronunciation}  </div>
+            <div className="word"><p>{wordDetails.word} </p> {pronunciation}  </div>
             <div className='syllables'>{syllables}</div>
             {partOfSpeech}
             {definition}
-            <button onClick={toggleCollectionForm}>Add to List</button>
             {collectionForm}
         </div>
     )
