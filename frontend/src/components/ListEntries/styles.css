@@ -1,6 +1,7 @@
 .entry {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 5px;
 }
 
 .entry p {

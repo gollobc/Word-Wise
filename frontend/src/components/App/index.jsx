@@ -5,7 +5,6 @@ import SearchPage from '../SearchPage'
 import NotFoundPage from '../NotFoundPage'
 import RandomPage from  '../RandomPage'
 import ListPage from '../ListPage'
-import { Button } from 'semantic-ui-react'
 
 export default function App() {
 
@@ -29,9 +28,10 @@ export default function App() {
                     <Route path='/random' element={<RandomPage/>}/>
                     <Route path="/*" element={<NotFoundPage />} />
                 </Routes>
-            </div>
 
-            <footer>
+
+            </div>
+             <footer>
                 <p className='copyright'>Copyright © 2023 WordWise</p>
                 <div>
                     <Link to='/'><i className="fa-solid fa-house"></i></Link>
@@ -39,6 +39,7 @@ export default function App() {
                     <a><i className="fa-brands fa-linkedin" ></i></a>
                 </div>
             </footer>
+
         </>
     )
 }

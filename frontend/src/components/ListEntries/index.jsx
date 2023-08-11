@@ -32,8 +32,10 @@ export default function ListEntries({data, refreshCollections}) {
     let entry = <div className="entry">
         <p>{data.word}</p>
         <div>
-            <button onClick={() => {setShowEditForm(true)}}>Edit</button>
-            <button onClick={handleDelete}>Delete</button>
+            <Button.Group size='mini'>
+                <Button onClick={() => {setShowEditForm(true)}}>Edit</Button>
+                <Button inverted color="red" onClick={handleDelete}>Delete</Button>
+            </Button.Group>
         </div>
         
     </div>
@@ -56,7 +58,7 @@ if (showEditForm) {
             onChange={handleInputChange}
         />
         <div className="edit-delete-btns">
-            <Button.Group>
+            <Button.Group size='mini'>
                 <Button onClick={() => {setShowEditForm(false)}}>Close</Button>
                 <Button type="submit">Submit</Button>
             </Button.Group>

@@ -11,16 +11,19 @@ form {
     display: flex;
     justify-content: center;
 }
+
 .search-bar {
     width: 40vw;
-    height: 18px;
     border: none;
-    border-radius: 1rem;
-    padding-left: 5px;
+    border-radius: 1rem;  
     margin-bottom: 2rem;
-    z-index: 1;
 }
+
 .search-button {
     height: 22px;
     margin-left: 2px;
+}
+
+.page-content{
+    min-height: 100vh;
 }

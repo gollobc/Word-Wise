@@ -1,6 +1,7 @@
 import { useState } from "react"
 import axios from 'axios'
 import './styles.css'
+import { Input } from "semantic-ui-react"
 
 
 export default function SearchPage() {
@@ -10,6 +11,7 @@ export default function SearchPage() {
     const [specificQueryResults, setSpecificQueryResults] = useState([])
     const [searchString, setSearchString] = useState('')
     const [expand, setExpand] = useState(false)
+    const [showCollectionForm, setShowCollectionForm] = useState(false)
     let word = ''
     const apiKey=import.meta.env.VITE_XRAPIDAPIKEY
     
@@ -55,7 +57,7 @@ export default function SearchPage() {
         event.preventDefault()
         setQueryResults([])
         getDictionary()
-        //setSearchString(`Showing results for ${query}`)
+        setSearchString(`Showing results for ${query}`)
     }
 
     function handleQueryClick() {
@@ -76,6 +78,22 @@ export default function SearchPage() {
         document.getElementById(id).play()
     }
     
+    let collectionForm = <></>
+    if (showCollectionForm) {
+        collectionForm = <form onSubmit={handleSubmit}>
+            <Input
+                size='mini'
+                name='collection'
+                placeholder='Set Collection'
+                onChange={handleInputChange}
+            />
+            <Button.Group size='mini'>
+            <Button type='submit'>Add</Button>
+            <Button onClick={() => setShowCollectionForm(false)}>Close</Button>
+            </Button.Group>
+        </form>
+    }
+
     if (queryResults.length > 0 && specificQueryResults.length < 1) {
         // pageContent = queryResults
         //     .map((word,i) => {
@@ -129,11 +147,7 @@ export default function SearchPage() {
                 
                 return (
                     <div className="wordCard" key={i}>
-                        <h3 
-                        
-                        className="searchResults"
-                        onClick={handleQueryClick}
-                        >
+                        <h3 className="searchResults">
                             {word.hwi.hw}
                         </h3>
                         
@@ -143,17 +157,12 @@ export default function SearchPage() {
                     </div>
                 )
             })
-        //console.log(queryResults)
     } 
     
     if (expand) {
 
     }
-    // if (specificQueryResults.length > 0) {
-    //     pageContent= <div>
-    //         <h1>{specificQueryResults.word}</h1>
-    //     </div>
-    // }
+
     
     /* Dictionary/Thesaurus -------------------------------------- */
     const apiDictionaryKey=import.meta.env.VITE_DICTIONARYKEY
@@ -170,23 +179,26 @@ export default function SearchPage() {
     /* ----------------------------------------------------------- */
 
     return (
-        <>
+        <div className="search-container">
             <h1>Search</h1>
             <form onSubmit={handleQuerySubmit} >
                     <label htmlFor="search">
                         
-                        <input 
+                        <Input 
+                            action='Search'
+                            size='small'
                             className="search-bar"
                             name="search" 
                             placeholder="Search..." 
                             value={query}
                             onChange={event => setQuery(event.target.value)}
                         />
-                        <button type="submit" className="search-button">Search</button>
+                        {/* <button type="submit" className="search-button">Search</button> */}
                     </label>
             </form>
-            {/* {searchString} */}
+            {searchString} 
             {pageContent}
-        </>
+            
+        </div>
     )
 }

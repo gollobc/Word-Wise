@@ -1,12 +1,16 @@
 body, html {
-  background-color: rgb(219, 219, 219);
-  height: 99%;
+  background-color: rgb(175, 175, 175);
   font-family: 'Playfair Display', serif;
+  box-sizing: border-box;
 }
 
-#root, .main-body {
-  min-height: 100%;
-  margin-bottom: 46px;
+#root {
+  background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wallpapersafari.com%2F51%2F87%2FrJh5fn.jpg&f=1&nofb=1&ipt=5f68bb6434ddd34f975467b58f6615e0bff79c820f96fc60a297a0782ab10ab2&ipo=images) no-repeat center center fixed;
+  padding: .5rem 1rem 0 1rem;
+}
+
+.main-body {
+  min-height: 90vh;
 }
 
 nav {
@@ -17,6 +21,7 @@ nav {
 }
 
 h1 {
+  font-family: 'Playfair Display', serif;
   text-shadow: -1px 0 1px white, 0 1px 1px white, 1px 0 1px white, 0 -1px 1px white;
   cursor: default;
 }
@@ -27,8 +32,6 @@ footer {
   align-items: center;
   position: relative;
   width: 100%;
-  height: 25px;
-  margin-top: -46px;
 }
 footer div i {
   padding: .2rem .5rem 0 .5rem;
@@ -75,3 +78,7 @@ button:hover {
   cursor: pointer;
 }
 
+#home-search:hover {
+  /* text-shadow: -1px 0 1px white, 0 1px 1px white, 1px 0 1px white, 0 -1px 1px white; */
+  transform: scale(1.2);
+}

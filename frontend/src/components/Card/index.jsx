@@ -1,9 +1,10 @@
 import './styles.css'
 import { postCollection } from '../../../utils/backend'
 import { useState } from 'react'
+import { Input, Button } from 'semantic-ui-react'
 
 export default function Card({wordDetails}) {
-    const [collection, setCollection] = useState({collection: ''})
+    const [collectionData, setCollectionData] = useState('')
     const [showCollectionForm, setShowCollectionForm] = useState(false)
     let definitions = <></>
     let syllables = <></>
@@ -30,14 +31,14 @@ export default function Card({wordDetails}) {
 
     function handleInputChange(event) {
         
-        setCollection({...collection,[event.target.name]: event.target.value})
+        setCollectionData(event.target.value)
     }
     
     function handleSubmit(event) {
         event.preventDefault()
         setShowCollectionForm(false)
         postCollection({
-
+            name:collectionData,
             word:wordDetails.word
         })
     }
@@ -45,13 +46,16 @@ export default function Card({wordDetails}) {
     let collectionForm = <></>
     if (showCollectionForm) {
         collectionForm = <form onSubmit={handleSubmit}>
-            <input
+            <Input
+                size='mini'
                 name='collection'
                 placeholder='Set Collection'
                 onChange={handleInputChange}
             />
-            <button type='submit'>Add</button>
-            <button onClick={() => setShowCollectionForm(false)}>Close</button>
+            <Button.Group size='mini'>
+            <Button type='submit'>Add</Button>
+            <Button onClick={() => setShowCollectionForm(false)}>Close</Button>
+            </Button.Group>
         </form>
     }
 
@@ -62,6 +66,7 @@ export default function Card({wordDetails}) {
             {partOfSpeech}
             {definition}
             <button onClick={toggleCollectionForm}>Add to List</button>
+            {collectionForm}
         </div>
     )
 }
