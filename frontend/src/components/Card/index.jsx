@@ -6,12 +6,14 @@ import { Input, Button, Form } from 'semantic-ui-react'
 export default function Card({wordDetails}) {
     const [collectionData, setCollectionData] = useState('')
     const [showCollectionForm, setShowCollectionForm] = useState(false)
+    const [addedToCollection, setAddedToCollection] = useState(false)
     let definitions = <></>
     let syllables = <></>
     let definition = <></>
     let partOfSpeech = <></>
     let pronunciation = <></>
-    let collectionForm = <Button size='mini' onClick={toggleCollectionForm}>Add to List</Button>
+
+    //let collectionForm = <Button size='mini' onClick={toggleCollectionForm}>Add to List</Button>
 
     if (wordDetails.syllables) {
         syllables = wordDetails.syllables.list
@@ -26,9 +28,12 @@ export default function Card({wordDetails}) {
         pronunciation = <p>{wordDetails.pronunciation}</p>
     }
 
-    function toggleCollectionForm () {
+    function toggleCollectionForm() {
         setShowCollectionForm(!showCollectionForm)
+        //setCollectionFormButton(<></>)
     }
+
+
 
     function handleInputChange(event) {  
         setCollectionData(event.target.value)
@@ -37,15 +42,14 @@ export default function Card({wordDetails}) {
     function handleSubmit(event) {
         event.preventDefault()
         setShowCollectionForm(false)
-        collectionForm = <></>
+        setAddedToCollection(true) 
         postCollection({
             name:collectionData,
             word:wordDetails.word
         })
-        return collectionForm
     }
 
-    
+    let collectionForm = <></>
     if (showCollectionForm) {
         collectionForm = <Form onSubmit={handleSubmit}>
             <Input
@@ -56,17 +60,23 @@ export default function Card({wordDetails}) {
             />
             <Button.Group size='mini'>
             <Button type='submit'>Add</Button>
-            <Button onClick={() => setShowCollectionForm(false)}>Close</Button>
+            <Button onClick={toggleCollectionForm}>Close</Button>
             </Button.Group>
         </Form>
     }
 
     return (
         <div className="wordCard">
-            <div className="word"><p>{wordDetails.word} </p> {pronunciation}  </div>
+            <div className="word"><p>{wordDetails.word} </p></div>
             <div className='syllables'>{syllables}</div>
-            {partOfSpeech}
-            {definition}
+            {/* {partOfSpeech}
+            {definition} */}
+            {/* {collectionFormButton} */}
+            {addedToCollection ? 
+                null :
+                !showCollectionForm && <Button size='mini' onClick={toggleCollectionForm}>Add to List</Button> 
+                
+            }
             {collectionForm}
         </div>
     )
