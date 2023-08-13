@@ -5,8 +5,16 @@ import { Button, Form, Input } from "semantic-ui-react"
 export default function SearchCardForm({ wordDetails }) {
     const [collectionData, setCollectionData] = useState('')
     const [showCollectionForm, setShowCollectionForm] = useState(false)
+    const [addedToCollection, setAddedToCollection] = useState(false)
 
-    let collectionForm = <Button size="mini" onClick={toggleCollectionForm}>Add</Button>
+    let collectionForm = <></>
+
+    if (!addedToCollection) {
+        collectionForm = <Button size="mini" onClick={toggleCollectionForm}>Add</Button>
+    } else {
+        collectionForm = null
+    }
+   
     
     function toggleCollectionForm() {
         setShowCollectionForm(true)
@@ -15,6 +23,7 @@ export default function SearchCardForm({ wordDetails }) {
     function handleSubmit(event) {
         event.preventDefault()
         setShowCollectionForm(false)
+        setAddedToCollection(true)
         postCollection({
             name:collectionData,
             word:wordDetails.hwi.hw
