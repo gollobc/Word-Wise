@@ -68,10 +68,6 @@ export default function Card({wordDetails}) {
     return (
         <div className="wordCard">
             <div className="word"><p>{wordDetails.word} </p></div>
-            <div className='syllables'>{syllables}</div>
-            {/* {partOfSpeech}
-            {definition} */}
-            {/* {collectionFormButton} */}
             {addedToCollection ? 
                 null :
                 !showCollectionForm && <Button size='mini' onClick={toggleCollectionForm}>Add to List</Button> 
