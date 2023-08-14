@@ -1,7 +1,10 @@
 .def {
-    font-size: x-small;
+    font-size: small;
 }
 
+i {
+    padding-right: 5rem;
+}
 i:hover {
     cursor: pointer;
     text-shadow: 0px 0 1px grey, 0 1px 1px grey, 1px 0 1px grey, 0 -1px 1px grey;
@@ -19,11 +22,26 @@ form {
     margin-bottom: 2rem;
 }
 
-.search-button {
+/* .search-button {
     height: 22px;
     margin-left: 2px;
-}
+} */
 
 .page-content{
     min-height: 100vh;
+}
+
+.word-card {
+    padding: 1rem;
+}
+
+.search-word {
+    display: flex;
+    justify-content: space-between;
+    font-size: larger;
+    border-bottom: 1px solid black;
+}
+
+input {
+    border-radius: 1rem;
 }

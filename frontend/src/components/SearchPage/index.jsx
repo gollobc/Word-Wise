@@ -149,11 +149,12 @@ export default function SearchPage() {
                 
                 return (
                     <div className="wordCard" key={i}>
-                        <h3 className="searchResults">
-                            {word.hwi.hw}
-                        </h3>
+                        <h2 className="search-word">
+                            {word.hwi.hw.replaceAll('*','')}
+                            {soundBit}
+                        </h2>
                         
-                        {soundBit}
+                        
                         <p>{word.fl}</p>
                         {defs}
                         <Synonyms word={word.hwi.hw}/>

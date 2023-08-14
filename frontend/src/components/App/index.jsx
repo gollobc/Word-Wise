@@ -29,9 +29,7 @@ export default function App() {
                     <Route path="/*" element={<NotFoundPage />} />
                 </Routes>
 
-
-            </div>
-             <footer>
+            <footer>
                 <p className='copyright'>Copyright © 2023 WordWise</p>
                 <div>
                     <Link to='/'><i className="fa-solid fa-house"></i></Link>
@@ -40,6 +38,8 @@ export default function App() {
                 </div>
             </footer>
 
+            </div>
+            
         </>
     )
 }

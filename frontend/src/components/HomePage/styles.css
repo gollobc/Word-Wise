@@ -3,16 +3,28 @@ img {
     max-width: 100%;
     opacity: .5;
 }
+
 .search {
-    /* width: 60vw; */
-    margin: 2rem auto 2rem;
+    margin: 4rem auto;
 }
+.search button {
+    height: 4rem;
+}
+.search * {
+    font-size: large;
+}
+
 
 h1 {
     display: flex;
     justify-content: center;
     
 }
-h1:hover {
+
+.title:hover {
     cursor: pointer;
+}
+
+p {
+    font-weight: 600;
 }
