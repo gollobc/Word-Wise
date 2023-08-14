@@ -3,6 +3,7 @@ import axios from 'axios'
 import './styles.css'
 import { Input } from "semantic-ui-react"
 import SearchCardForm from "./SearchCardForm"
+import Synonyms from "./Synonyms"
 
 
 export default function SearchPage() {
@@ -155,6 +156,7 @@ export default function SearchPage() {
                         {soundBit}
                         <p>{word.fl}</p>
                         {defs}
+                        <Synonyms word={word.hwi.hw}/>
                         <SearchCardForm wordDetails={word}/>
                     </div>
                 )
@@ -168,9 +170,9 @@ export default function SearchPage() {
     
     /* Dictionary/Thesaurus -------------------------------------- */
     const apiDictionaryKey=import.meta.env.VITE_DICTIONARYKEY
-    const apiThesaurusKey=import.meta.env.VITE_THESAURUSKEY
+    // const apiThesaurusKey=import.meta.env.VITE_THESAURUSKEY
     const dictUrl = `https://dictionaryapi.com/api/v3/references/collegiate/json/${query}?key=${apiDictionaryKey}`
-    const thesUrl = `https://dictionaryapi.com/api/v3/references/thesaurus/json/${query}?key=${apiThesaurusKey}`
+    // const thesUrl = `https://dictionaryapi.com/api/v3/references/thesaurus/json/${query}?key=${apiThesaurusKey}`
 
     function getDictionary() {
         axios.get(dictUrl)

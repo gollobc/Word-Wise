@@ -32,7 +32,7 @@ export default function SearchCardForm({ wordDetails }) {
 
     function handleInputChange(event) {
         setCollectionData(event.target.value)
-        console.log(wordDetails.hwi.hw)
+        // console.log(wordDetails.hwi.hw)
     }
 
     if (showCollectionForm) {
