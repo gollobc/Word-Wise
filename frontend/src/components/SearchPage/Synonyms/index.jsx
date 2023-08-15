@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import './styles.css'
 
 
 export default function Synonyms({ word }) {
@@ -21,25 +22,40 @@ export default function Synonyms({ word }) {
     }
 
     
-    
+    let synonymsHeader = <></>
     let synonymsContent = <></>
-    if (synonyms.length > 0) {
-        console.log(synonyms[0])
-        // if (synonyms[0].meta.syns) {
-        //     synonymsContent = synonyms.meta.syns.map((synonym,i) => {
-        //         <p key={i}>{synonym}</p>
-        //     })
-        //     console.log(synonyms[0].meta)
-        // } else if (synonyms.length > 1) {
-        //     synonymsContent = synonyms.map((synonym,i) => {
-        //         <p key={i}>{synonym}</p>
-        //     })
-        // }
+    let antonymsHeader = <></>
+    let antonymsContent = <></>
+    if (typeof synonyms[0] === 'object') {
+        synonymsHeader = <p>Synonyms</p>
+        synonymsContent = synonyms[0].meta.syns[0].map((synonym,i) => {
+            return <p key={i}>{synonym}</p>
+            })
+        if (synonyms[0].meta.ants.length > 0) {
+            antonymsHeader = <p>Antonyms</p>
+            antonymsContent = synonyms[0].meta.ants[0].map((antonym,i) => {
+                return <p key={i}>{antonym}</p>
+            })
+        }
+    } else if (synonyms.length > 0) {
+        synonymsHeader = <p>Synonyms</p>
+        synonymsContent = synonyms.map((synonym,i) => {
+            return <p key={i}>{synonym}</p>
+        })
     }
+        
+    //console.log(synonyms)
 
     return (
         <>
+        {synonymsHeader}
+        <div className="syn-content">
             {synonymsContent}
+        </div>
+        {antonymsHeader}
+        <div className="ant-content">
+            {antonymsContent}
+        </div>
         </>
     )
 }

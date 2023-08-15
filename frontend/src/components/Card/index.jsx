@@ -59,8 +59,8 @@ export default function Card({wordDetails}) {
                 onChange={handleInputChange}
             />
             <Button.Group size='mini'>
-            <Button type='submit'>Add</Button>
-            <Button onClick={toggleCollectionForm}>Close</Button>
+            <Button secondary type='submit'>Add</Button>
+            <Button secondary onClick={toggleCollectionForm}>Close</Button>
             </Button.Group>
         </Form>
     }
@@ -70,7 +70,7 @@ export default function Card({wordDetails}) {
             <div className="word"><p>{wordDetails.word} </p></div>
             {addedToCollection ? 
                 null :
-                !showCollectionForm && <Button size='mini' onClick={toggleCollectionForm}>Add to List</Button> 
+                !showCollectionForm && <Button secondary size='mini' onClick={toggleCollectionForm}>Add to List</Button> 
                 
             }
             {collectionForm}

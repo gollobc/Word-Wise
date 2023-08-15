@@ -26,13 +26,12 @@ export default function SearchCardForm({ wordDetails }) {
         setAddedToCollection(true)
         postCollection({
             name:collectionData,
-            word:wordDetails.hwi.hw
+            word:wordDetails.hwi.hw.replaceAll('*','')
         })
     }
 
     function handleInputChange(event) {
         setCollectionData(event.target.value)
-        // console.log(wordDetails.hwi.hw)
     }
 
     if (showCollectionForm) {

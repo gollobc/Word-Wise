@@ -8,53 +8,21 @@ import Synonyms from "./Synonyms"
 
 export default function SearchPage() {
     const [query, setQuery] = useState('')
-    const [specificQuery, setSpecificQuery] = useState('')
     const [queryResults, setQueryResults] = useState([])
-    const [specificQueryResults, setSpecificQueryResults] = useState([])
     const [searchString, setSearchString] = useState('')
-    const [expand, setExpand] = useState(false)
     const [showCollectionForm, setShowCollectionForm] = useState(false)
-    let word = ''
-    const apiKey=import.meta.env.VITE_XRAPIDAPIKEY
-    
-    const generalSearchOptions = {
-        method: 'GET',
-        url: `https://wordsapiv1.p.rapidapi.com/words/`,
-        params: {
-            letterPattern: `${query}`,
-            limit: '50',
-            page: '1'
-          },
-        headers: {
-          'X-RapidAPI-Key': `${apiKey}`,
-          'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
-        }
-      };
+   
+    const apiDictionaryKey=import.meta.env.VITE_DICTIONARYKEY
+    const dictUrl = `https://dictionaryapi.com/api/v3/references/collegiate/json/${query}?key=${apiDictionaryKey}`
 
-    const specificSearchOptions = {
-        method: 'GET',
-        url: `https://wordsapiv1.p.rapidapi.com/words/${specificQuery}`,
-        headers: {
-          'X-RapidAPI-Key': `${apiKey}`,
-          'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
-        }
-      };  
 
-    // function getWords() {
-    //     axios.request(generalSearchOptions)
-    //         .then( (res) => {
-    //             setQueryResults([...res.data.results.data])
-    //         })
-    // }
+    function getDictionary() {
+        axios.get(dictUrl)
+            .then((res) => {
+                setQueryResults([...res.data])
+            })
+    }    
 
-    // function getWord() {
-    //     axios.request(specificSearchOptions)
-    //         .then( (res) => {
-    //             setSpecificQueryResults(res.data)
-                
-    //         })
-    // }
-    
     function handleQuerySubmit(event) {
         event.preventDefault()
         setQueryResults([])
@@ -62,25 +30,14 @@ export default function SearchPage() {
         setSearchString(`Showing results for ${query}`)
     }
 
-    function handleQueryClick() {
-        setSpecificQueryResults([])
-        console.log(specificQuery)
-        //getWord()
-    }
-
-    // function getPronuciation() {
-    //     axios.get(`https://media.merriam-webster.com/audio/prons/en/us/mp3/f/flower01.mp3
-    //     `)
-    // }
-
-    let pageContent = <></>
-    let soundBit = <></>
-
     function playAudio(id) {
         document.getElementById(id).play()
     }
-    
+
+    let pageContent = <></>
+    let soundBit = <></>
     let collectionForm = <></>
+
     if (showCollectionForm) {
         collectionForm = <form onSubmit={handleSubmit}>
             <Input
@@ -96,17 +53,8 @@ export default function SearchPage() {
         </form>
     }
 
-    if (queryResults.length > 0 && specificQueryResults.length < 1) {
-        // pageContent = queryResults
-        //     .map((word,i) => {
-        //         return <p 
-        //         key={i}
-        //         className="searchResults"
-        //         onClick={handleQueryClick}>
-        //             {word}
-        //         </p>
-        //     })
-
+    if (queryResults.length > 0) {
+        console.log(queryResults)
         pageContent = queryResults
             .map((word,i) => {
                 let defs = ''
@@ -158,30 +106,15 @@ export default function SearchPage() {
                         <p>{word.fl}</p>
                         {defs}
                         <Synonyms word={word.hwi.hw}/>
+                        {/* {word.et[0][1]} */}
                         <SearchCardForm wordDetails={word}/>
                     </div>
                 )
             })
     } 
-    
-    if (expand) {
-
-    }
+ 
 
     
-    /* Dictionary/Thesaurus -------------------------------------- */
-    const apiDictionaryKey=import.meta.env.VITE_DICTIONARYKEY
-    // const apiThesaurusKey=import.meta.env.VITE_THESAURUSKEY
-    const dictUrl = `https://dictionaryapi.com/api/v3/references/collegiate/json/${query}?key=${apiDictionaryKey}`
-    // const thesUrl = `https://dictionaryapi.com/api/v3/references/thesaurus/json/${query}?key=${apiThesaurusKey}`
-
-    function getDictionary() {
-        axios.get(dictUrl)
-            .then((res) => {
-                setQueryResults([...res.data])
-            })
-    }
-    /* ----------------------------------------------------------- */
 
     return (
         <div className="search-container">
@@ -190,7 +123,10 @@ export default function SearchPage() {
                     <label htmlFor="search">
                         
                         <Input 
-                            action='Search'
+                            action={{
+                                content:'Search',
+                                color: 'black'
+                            }}
                             size='small'
                             className="search-bar"
                             name="search" 
@@ -198,7 +134,6 @@ export default function SearchPage() {
                             value={query}
                             onChange={event => setQuery(event.target.value)}
                         />
-                        {/* <button type="submit" className="search-button">Search</button> */}
                     </label>
             </form>
             {searchString} 

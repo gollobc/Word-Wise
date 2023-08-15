@@ -13,7 +13,7 @@ body, html {
 
 .main-body {
   font-size: x-large;
-  min-height: 97vh;
+  min-height: 95vh;
   max-width: 600px;
   margin: auto;
   /* padding: 0 3rem; */

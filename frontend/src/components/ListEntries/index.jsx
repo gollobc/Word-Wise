@@ -33,7 +33,7 @@ export default function ListEntries({data, refreshCollections}) {
         <p>{data.word}</p>
         <div>
             <Button.Group size='mini'>
-                <Button onClick={() => {setShowEditForm(true)}}>Edit</Button>
+                <Button secondary onClick={() => {setShowEditForm(true)}}>Edit</Button>
                 <Button inverted color="red" onClick={handleDelete}>Delete</Button>
             </Button.Group>
         </div>
