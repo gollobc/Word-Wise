@@ -19,11 +19,9 @@ Full-stack MERN application that utilizies multiple API's to provide word relate
 <ul>
 <li>Fork and clone this repo to your local machine</li>
 <li>Open file with desired code editor</li>
-<li>To install all necessary packages run 
-```
-npm i
-```
-</li>
+<li>To install all necessary packages run</li>
+    npm i
+<li></li>
 </ul>
 
 ## User Stories
