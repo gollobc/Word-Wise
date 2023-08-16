@@ -50,7 +50,7 @@ npm run backend
 npm run frontend
 ```
 
-<li>You now have access to all functionality of WordWise</li>
+<li>Navigate to localhost:5173 in your web browser and you now have access to all functionality of WordWise</li>
 </ul>
 
 ## User Stories
@@ -77,5 +77,6 @@ As a classmate, I want to see cool apps so that I can congratulate them on how m
 <ul>
 <li>Format the list page so that words are grouped by collections.</li>
 <li>User auth</li>
-<li></li>
+<li>More detailed search results</li>
+<li>Store word details for access in list or link words to their search</li>
 </ul>
