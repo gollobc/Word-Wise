@@ -25,7 +25,26 @@ Full-stack MERN application that utilizies multiple API's to provide word relate
 npm i
 ``` 
 
-<li></li>
+<li>In root level of repo create a .env file and add the following variables</li>
+
+```
+PORT=3000
+MONGODBURI=mongodb+srv://(yourUsername):(yourMongoDBConnectionString)
+VITE_XRAPIDAPIKEY=ApiKeyForWordAPI
+VITE_DICTIONARYKEY=ApiKeyForMerriamWebsterCollegiateDictionaryWithAudio
+VITE_THESAURUSKEY=ApiKeyForMeriamWebsterCollegiateThesaurus
+```
+
+<li>Open two terminals and run one of the following in each</li>
+
+```
+npm run backend
+```
+```
+npm run frontend
+```
+
+<li>You now have access to all functionality of WordWise</li>
 </ul>
 
 ## User Stories
