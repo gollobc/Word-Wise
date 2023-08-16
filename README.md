@@ -21,11 +21,13 @@ Full-stack MERN application that utilizies multiple API's to provide word relate
 <li>Open file with desired code editor</li>
 <li>To install all necessary packages run</li>
 
+
 ```
 npm i
 ``` 
 
 <li>In root level of repo create a .env file and add the following variables</li>
+
 
 ```
 PORT=3000
@@ -35,11 +37,15 @@ VITE_DICTIONARYKEY=ApiKeyForMerriamWebsterCollegiateDictionaryWithAudio
 VITE_THESAURUSKEY=ApiKeyForMeriamWebsterCollegiateThesaurus
 ```
 
+<li>This app uses free access API's that require keys. They can be obtained from https://dictionaryapi.com/ and https://rapidapi.com/dpventures/api/wordsapi</li>
 <li>Open two terminals and run one of the following in each</li>
+
 
 ```
 npm run backend
 ```
+
+
 ```
 npm run frontend
 ```
