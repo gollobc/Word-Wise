@@ -37,6 +37,7 @@ export default function SearchPage() {
     let pageContent = <></>
     let soundBit = <></>
     let collectionForm = <></>
+    let etyContent = <></>
 
     if (showCollectionForm) {
         collectionForm = <form onSubmit={handleSubmit}>
@@ -53,7 +54,7 @@ export default function SearchPage() {
         </form>
     }
 
-    if (queryResults.length > 0) {
+    if (queryResults.length > 0 && typeof queryResults[0] === 'object') {
         console.log(queryResults)
         pageContent = queryResults
             .map((word,i) => {
@@ -93,6 +94,15 @@ export default function SearchPage() {
                 } else {
                     soundBit = <></>
                 }
+
+                if (word.et) {
+                    etyContent = <>
+                        <p className="etymology">Etymology</p>
+                        <p className="ety-info">{word.et[0][1].replaceAll(/{(.*?)}/g,'')}</p>
+                    </>
+                } else {
+                    etyContent = <></>
+                }
          
                 
                 return (
@@ -106,19 +116,27 @@ export default function SearchPage() {
                         <p>{word.fl}</p>
                         {defs}
                         <Synonyms word={word.hwi.hw}/>
-                        {/* {word.et[0][1]} */}
+                        {etyContent}
                         <SearchCardForm wordDetails={word}/>
                     </div>
                 )
             })
-    } 
+    } else if (typeof queryResults[0] === 'string') {
+        //unknownWord()
+        pageContent = queryResults
+            .map((word, i) => {
+                return <p className='alternate-results' key={i}>{word}</p>
+            })
+    }
  
 
     
 
     return (
         <div className="search-container">
+
             <h1>Search</h1>
+
             <form onSubmit={handleQuerySubmit} >
                     <label htmlFor="search">
                         
@@ -136,8 +154,16 @@ export default function SearchPage() {
                         />
                     </label>
             </form>
-            {searchString} 
-            {pageContent}
+
+            <div className="search-string">
+               {searchString}  
+            </div>
+            
+            <div className="results-container">
+                {pageContent}
+            </div>
+            
+            
             
         </div>
     )

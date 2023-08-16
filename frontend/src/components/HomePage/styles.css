@@ -5,13 +5,14 @@ img {
 }
 
 .search {
-    margin: 4rem auto;
+    margin: 4rem auto 10rem auto;
 }
 .search button {
     height: 4rem;
 }
 .search * {
     font-size: x-large;
+    padding-left: 1.15rem;
 }
 
 
@@ -27,4 +28,11 @@ h1 {
 
 p {
     font-weight: 600;
+}
+
+.home a p {
+    text-shadow: -1px 0 1px white, 0 1px 1px white, 1px 0 1px white, 0 -1px 1px white;
+  }
+.home {
+    padding-left: 1rem;
 }

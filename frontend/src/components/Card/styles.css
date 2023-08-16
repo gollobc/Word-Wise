@@ -4,8 +4,12 @@
     border-radius: .5rem;
     padding: .75rem;
     margin: 2rem 0;
+    min-width: 100%;
 }
 
+.wordCard:last-of-type {
+    margin-bottom: 4rem;
+}
 .word {
     display: flex;
     border-bottom: 1px solid black;

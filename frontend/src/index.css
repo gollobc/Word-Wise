@@ -1,23 +1,28 @@
+* {
+  box-sizing: border-box;
+}
 body, html {
   background-color: rgb(175, 175, 175);
   font-family: 'Playfair Display', serif;
-  box-sizing: border-box;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 #root {
   background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wallpapersafari.com%2F51%2F87%2FrJh5fn.jpg&f=1&nofb=1&ipt=5f68bb6434ddd34f975467b58f6615e0bff79c820f96fc60a297a0782ab10ab2&ipo=images) no-repeat center fixed;
-  padding: .5rem 1rem 0 1rem;
+  /* padding: .5rem 1rem 0 1rem; */
   min-height: 100vh;
 }
 
 .main-body {
   font-size: x-large;
-  min-height: 95vh;
+  min-height: calc(100vh - 34.98px);
   max-width: 600px;
   margin: auto;
+  border: 2px solid black;
   /* padding: 0 3rem; */
-  /* position: relative; */
+  position: relative;
+  border-color: transparent;
 }
 
 nav {
@@ -25,6 +30,7 @@ nav {
   justify-content: space-between;
   font-size: 1.5rem;
   border-bottom: 1px solid black;
+  /* width: 100vw; */
 }
 
 h1 {
@@ -32,7 +38,7 @@ h1 {
   text-shadow: -1px 0 1px white, 0 1px 1px white, 1px 0 1px white, 0 -1px 1px white;
   cursor: default;
   font-size: 4rem;
-  padding-top: 4rem;
+  padding-top: calc(4rem - 20px);
   margin-bottom: 4rem;
 }
 
@@ -40,9 +46,8 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* position: absolute; */
-  position: relative;
-  /* bottom: 0; */
+  position: absolute;
+  bottom: 0;
   width: 100%;
 }
 footer div i {

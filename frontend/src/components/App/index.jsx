@@ -9,7 +9,8 @@ import ListPage from '../ListPage'
 export default function App() {
 
     return(
-        <>  <nav>
+        <>              
+            <nav>
                 <div className="home"><Link to='/'><p>WordWise</p></Link></div>
                 <div className='navigation'>
                     <Link to='/search'><p>Search</p></Link>
@@ -30,11 +31,11 @@ export default function App() {
                 </Routes>
 
             <footer>
-                <p className='copyright'>Copyright © 2023 WordWise</p>
+                <h2 className='copyright'>Copyright © 2023 WordWise</h2>
                 <div>
                     <Link to='/'><i className="fa-solid fa-house"></i></Link>
-                    <a href='github.com/gollobc'><i className="fa-brands fa-github" ></i></a>
-                    <a><i className="fa-brands fa-linkedin" ></i></a>
+                    <a href='https://github.com/gollobc' target='_blank' rel="noreferrer noopener"><i className="fa-brands fa-github" ></i></a>
+                    <a href='https://linkedin.com/in/cadegollob' target='_blank' rel="noreferrer noopener"><i className="fa-brands fa-linkedin" ></i></a>
                 </div>
             </footer>
 

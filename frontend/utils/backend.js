@@ -16,3 +16,5 @@ export async function deleteCollection(id) {
     const { data } = await axios.delete(`/api/collection/${id}`)
     return data
 }
+
+console.log('-------------------------')

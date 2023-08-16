@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getCollections, updateCollection, deleteCollection } from "../../../utils/backend"
 import ListEntries from "../ListEntries"
+import { Button } from "semantic-ui-react"
 
 export default function ListPage() {
     const [collections, setCollections] = useState([])
@@ -31,6 +32,7 @@ export default function ListPage() {
     return (
         <>
             <h1>Your Words</h1>
+            <Button secondary>Edit Mode</Button>
             {pageContent}
         </>
     )

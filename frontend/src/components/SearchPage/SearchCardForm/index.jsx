@@ -10,7 +10,7 @@ export default function SearchCardForm({ wordDetails }) {
     let collectionForm = <></>
 
     if (!addedToCollection) {
-        collectionForm = <Button size="mini" onClick={toggleCollectionForm}>Add</Button>
+        collectionForm = <Button secondary size="mini" onClick={toggleCollectionForm}>Add</Button>
     } else {
         collectionForm = null
     }
@@ -43,8 +43,8 @@ export default function SearchCardForm({ wordDetails }) {
                 onChange={handleInputChange}
             />
             <Button.Group size='mini'>
-            <Button type='submit'>Add</Button>
-            <Button onClick={() => setShowCollectionForm(false)}>Close</Button>
+            <Button secondary type='submit'>Add</Button>
+            <Button secondary onClick={() => setShowCollectionForm(false)}>Close</Button>
             </Button.Group>
         </Form>
     }

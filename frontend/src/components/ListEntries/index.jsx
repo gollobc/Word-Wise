@@ -1,7 +1,7 @@
 import { useState } from "react"
 import './styles.css'
 import { getCollections, updateCollection, deleteCollection } from "../../../utils/backend"
-import { Button } from "semantic-ui-react"
+import { Button, Form, Input } from "semantic-ui-react"
 
 export default function ListEntries({data, refreshCollections}) {
     const [showEditForm, setShowEditForm] = useState(false)
@@ -9,6 +9,7 @@ export default function ListEntries({data, refreshCollections}) {
         name: data.name,
         word: data.word
     })
+    const [showEditBtns, setShowEditBtns] = useState(false)
 
     function handleInputChange(event) {
         setEditFormData({
@@ -31,39 +32,45 @@ export default function ListEntries({data, refreshCollections}) {
 
     let entry = <div className="entry">
         <p>{data.word}</p>
+        {showEditBtns ? 
         <div>
             <Button.Group size='mini'>
                 <Button secondary onClick={() => {setShowEditForm(true)}}>Edit</Button>
                 <Button inverted color="red" onClick={handleDelete}>Delete</Button>
             </Button.Group>
-        </div>
+        </div> :
+        null
+        }
+
         
     </div>
 
 if (showEditForm) {
-    entry = <form className="edit-form" onSubmit={handleSubmit}>
-        <input
-            className="form-control" 
-            name='name'
-            placeholder="Name"
-            value={editFormData.name}
-            onChange={handleInputChange}
-        />
-        <br/>
-        <textarea 
-            className="form-control"
-            name='word'
-            placeholder="word..."
-            value={editFormData.word}
-            onChange={handleInputChange}
-        />
-        <div className="edit-delete-btns">
+    entry = <Form className="edit-form" onSubmit={handleSubmit}>
+        <Form.Group widths='equal'>
+            <Form.Input
+                className="form-control" 
+                name='name'
+                placeholder="Name"
+                value={editFormData.name}
+                onChange={handleInputChange}
+            />
+            <br/>
+            <Form.Input 
+                className="form-control"
+                name='word'
+                placeholder="word..."
+                value={editFormData.word}
+                onChange={handleInputChange}
+            />
+        </Form.Group>
+        <div className="close-sub-btns">
             <Button.Group size='mini'>
-                <Button onClick={() => {setShowEditForm(false)}}>Close</Button>
-                <Button type="submit">Submit</Button>
+                <Button secondary onClick={() => {setShowEditForm(false)}}>Close</Button>
+                <Button secondary type="submit">Submit</Button>
             </Button.Group>
         </div>
-    </form>
+    </Form>
 }
     return entry
 }

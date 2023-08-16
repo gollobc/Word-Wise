@@ -1,4 +1,4 @@
-.def {
+.def, .ety-info {
     font-size: small;
 }
 
@@ -44,4 +44,21 @@ form {
 
 input {
     border-radius: 1rem;
+}
+
+.results-container {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.alternate-results {
+    min-width: 20%;
+}
+
+.search-string {
+    margin-bottom: 2rem;
+}
+
+.syn-content, .ant-content {
+    margin-bottom: 1rem;
 }
