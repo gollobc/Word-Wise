@@ -16,7 +16,15 @@ Full-stack MERN application that utilizies multiple API's to provide word relate
 </ul>
 
 ## Installation Insturctions
-
+<ul>
+<li>Fork and clone this repo to your local machine</li>
+<li>Open file with desired code editor</li>
+<li>To install all necessary packages run 
+```
+npm i
+```
+</li>
+</ul>
 
 ## User Stories
 
@@ -28,10 +36,12 @@ As a classmate, I want to see cool apps so that I can congratulate them on how m
 
 ## Wireframes
 
-https://wireframe.cc/V7NTms
-https://wireframe.cc/nU6J9Q
-https://wireframe.cc/GTnyIo
-https://wireframe.cc/Sn44aS
+<ul>
+<li>https://wireframe.cc/V7NTms</li>
+<li>https://wireframe.cc/nU6J9Q</li>
+<li>https://wireframe.cc/GTnyIo</li>
+<li>https://wireframe.cc/Sn44aS</li>
+</ul>
 
 ## Unsolved Problems
 
