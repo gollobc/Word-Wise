@@ -20,7 +20,11 @@ Full-stack MERN application that utilizies multiple API's to provide word relate
 <li>Fork and clone this repo to your local machine</li>
 <li>Open file with desired code editor</li>
 <li>To install all necessary packages run</li>
-    npm i
+
+```
+npm i
+``` 
+
 <li></li>
 </ul>
 
