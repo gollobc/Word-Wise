@@ -10,7 +10,6 @@ body, html {
 
 #root {
   background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wallpapersafari.com%2F51%2F87%2FrJh5fn.jpg&f=1&nofb=1&ipt=5f68bb6434ddd34f975467b58f6615e0bff79c820f96fc60a297a0782ab10ab2&ipo=images) no-repeat center fixed;
-  /* padding: .5rem 1rem 0 1rem; */
   min-height: 100vh;
 }
 
@@ -20,7 +19,6 @@ body, html {
   max-width: 600px;
   margin: auto;
   border: 2px solid black;
-  /* padding: 0 3rem; */
   position: relative;
   border-color: transparent;
 }
@@ -30,7 +28,6 @@ nav {
   justify-content: space-between;
   font-size: 1.5rem;
   border-bottom: 1px solid black;
-  /* width: 100vw; */
 }
 
 h1 {
@@ -89,13 +86,14 @@ button:hover {
 }
 
 .searchResults {
-  /* width: max-content; */
-  /* float: left;
-  clear: left; */
   display: inline-block;
   width: 50%;
   cursor: pointer;
 }
 
-
+.edit-mode {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
 

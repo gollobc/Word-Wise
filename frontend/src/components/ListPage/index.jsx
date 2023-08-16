@@ -5,7 +5,7 @@ import { Button } from "semantic-ui-react"
 
 export default function ListPage() {
     const [collections, setCollections] = useState([])
-
+    const [showEditBtns, setShowEditBtns] = useState(false)
 
     let pageContent = <p>Loading collections</p>
 
@@ -19,6 +19,10 @@ export default function ListPage() {
             .then(newCollectionData => setCollections(newCollectionData))
     }
 
+    function toggleEdit() {
+        setShowEditBtns(!showEditBtns)
+    }
+
     if (collections.length > 0) {
         pageContent = collections
             .map((collection, i) => {
@@ -26,13 +30,17 @@ export default function ListPage() {
                     key={i}
                     data={collection}
                     refreshCollections={refreshCollections}
+                    showEditBtns={showEditBtns}
                 />
             })
     }
     return (
         <>
             <h1>Your Words</h1>
-            <Button secondary>Edit Mode</Button>
+            <div className="edit-mode">
+                <Button secondary onClick={toggleEdit} >Edit Mode</Button>
+            </div>
+
             {pageContent}
         </>
     )

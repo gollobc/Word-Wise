@@ -7,30 +7,28 @@ export default function Card({wordDetails}) {
     const [collectionData, setCollectionData] = useState('')
     const [showCollectionForm, setShowCollectionForm] = useState(false)
     const [addedToCollection, setAddedToCollection] = useState(false)
-    let definitions = <></>
-    let syllables = <></>
-    let definition = <></>
-    let partOfSpeech = <></>
-    let pronunciation = <></>
+    
+    // let definitions = <></>
+    // let syllables = <></>
+    // let definition = <></>
+    // let partOfSpeech = <></>
+    // let pronunciation = <></>
 
-    //let collectionForm = <Button size='mini' onClick={toggleCollectionForm}>Add to List</Button>
+    // if (wordDetails.syllables) {
+    //     syllables = wordDetails.syllables.list
+    //         .map((syllable,i) => {
+    //             return <p key={i}>{syllable} -</p>
+    //         })
+    // }
 
-    if (wordDetails.syllables) {
-        syllables = wordDetails.syllables.list
-            .map((syllable,i) => {
-                return <p key={i}>{syllable} -</p>
-            })
-    }
-
-    if (wordDetails.results) {
-        definition = <p>{wordDetails.results[0].definition}</p>
-        partOfSpeech = <p>{wordDetails.results[0].partOfSpeech}</p>
-        pronunciation = <p>{wordDetails.pronunciation}</p>
-    }
+    // if (wordDetails.results) {
+    //     definition = <p>{wordDetails.results[0].definition}</p>
+    //     partOfSpeech = <p>{wordDetails.results[0].partOfSpeech}</p>
+    //     pronunciation = <p>{wordDetails.pronunciation}</p>
+    // }
 
     function toggleCollectionForm() {
         setShowCollectionForm(!showCollectionForm)
-        //setCollectionFormButton(<></>)
     }
 
 

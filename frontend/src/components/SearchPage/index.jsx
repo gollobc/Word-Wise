@@ -122,7 +122,6 @@ export default function SearchPage() {
                 )
             })
     } else if (typeof queryResults[0] === 'string') {
-        //unknownWord()
         pageContent = queryResults
             .map((word, i) => {
                 return <p className='alternate-results' key={i}>{word}</p>

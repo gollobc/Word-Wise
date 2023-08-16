@@ -44,7 +44,6 @@ export default function Synonyms({ word }) {
         })
     }
         
-    //console.log(synonyms)
 
     return (
         <>

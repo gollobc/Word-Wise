@@ -17,4 +17,3 @@ export async function deleteCollection(id) {
     return data
 }
 
-console.log('-------------------------')

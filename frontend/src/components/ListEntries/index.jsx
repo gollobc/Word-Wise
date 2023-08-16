@@ -3,13 +3,13 @@ import './styles.css'
 import { getCollections, updateCollection, deleteCollection } from "../../../utils/backend"
 import { Button, Form, Input } from "semantic-ui-react"
 
-export default function ListEntries({data, refreshCollections}) {
+export default function ListEntries({data, refreshCollections, showEditBtns}) {
     const [showEditForm, setShowEditForm] = useState(false)
     const [editFormData, setEditFormData] = useState({
         name: data.name,
         word: data.word
     })
-    const [showEditBtns, setShowEditBtns] = useState(false)
+    
 
     function handleInputChange(event) {
         setEditFormData({

@@ -31,7 +31,6 @@ export default function RandomPage() {
     }
 
     if (random.length > 0) {
-        //console.log(random)
         pageContent = <Card wordDetails={random[0]}/>
     }
 
