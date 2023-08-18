@@ -42,7 +42,7 @@ export default function HomePage() {
                     The English language contains hundreds of thousands of words but the average adult only knows somewhere in the range of 20000-40000 words. The number of words we use in our daily lives, is even less than that. This is where WordWise can help.
                 </p>
                 <p>
-                     Not everyone is interesed in learning more words but for those who are, our goal is to offer a fun learning experience. Here you will have access to over a 150000 words. So there will always be something new to learn. You'll be able to search any word you like and get back information such as synonyms, definitions, related words, and more. You'll also be able to create collections of words for studying purposes. Ready to get started?
+                     Not everyone is interesed in learning more words but for those who are, our goal is to offer a fun learning experience. Here you will have access to over a 150000 words. So there will always be something new to learn. You'll be able to search any word you like and get back information such as synonyms, definitions, related words, and more. You'll also be able to create collections for studying purposes. Ready to get started?
                 </p>
                 <div className="search">
                     <Link to='/search'>
